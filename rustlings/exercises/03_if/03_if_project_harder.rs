@@ -22,7 +22,6 @@ fn process_transaction(balance:i64 , amount : i64 , transaction_type: &str) -> i
         balance
     }
 
-
 }
 
 
