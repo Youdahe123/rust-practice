@@ -24,6 +24,9 @@ fn main() {
     //   34, 87, 22, 95, 61, 43, 78, 10, 55, 89, 47, 66
     //
     // let readings: [u8; SENSOR_COUNT] = ???;
+
+      let readings: [u8; SENSOR_COUNT] = [34, 87, 22, 95, 61, 43, 78, 10, 55,
+  89, 47, 66];
     todo!("TODO 1: declare the readings array");
 
     // ── TODO 2 ───────────────────────────────────────────────
