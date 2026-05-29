@@ -37,6 +37,11 @@ fn main() {
     //   avg  (f64)
     //
     // let (???, ???, ???) = compute_stats(???);
+    let result = compute_stats(&readings);
+    let min = result.0;
+    let max  = result.1;
+    let avg = result.2;
+
     todo!("TODO 2: call compute_stats and destructure the result");
 
     println!("Full array  → Min: {min}, Max: {max}, Avg: {avg:.2}");
@@ -48,6 +53,11 @@ fn main() {
     //
     // let mid_slice = ???;
     // let (???, ???, ???) = compute_stats(mid_slice);
+    let result = compute_stats(&readings[3..9]);
+    let mid_min = result.0;
+    let mid_max = result.1;
+    let mid_avg = result.2;
+    
     todo!("TODO 3: slice the middle 6 and compute stats on them");
 
     println!("Middle 6    → Min: {mid_min}, Max: {mid_max}, Avg: {mid_avg:.2}");
@@ -58,6 +68,9 @@ fn main() {
     //   is_critical (bool)
     //
     // let (???, ???) = sensor_status(avg);
+    let sensorValue = sensor_status(avg);
+    let label = sensorValue.0;
+    let is_critical = sensorValue.1;
     todo!("TODO 4: call sensor_status and destructure");
 
     println!("Status      → Label: '{label}', Critical: {is_critical}");
@@ -69,6 +82,9 @@ fn main() {
     //   above (u32)
     //
     // let (???, ???) = count_threshold(???, avg);
+    let threshold = count_threshold(&readings, avg);
+  let below = threshold.0;
+  let above = threshold.1;
     todo!("TODO 5: call count_threshold and destructure");
 
     println!("Threshold   → {below} below avg, {above} at-or-above avg");
