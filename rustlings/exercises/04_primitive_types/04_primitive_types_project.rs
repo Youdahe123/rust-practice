@@ -98,7 +98,7 @@ fn main() {
     println!("Second reading: {}", readings[1]);
 }
 
-// ─────────────────────────────────────────────────────────────
+// ─────────i ────────────────────────────────────────────────────
 //  IMPLEMENT THE THREE FUNCTIONS BELOW
 // ─────────────────────────────────────────────────────────────
 
@@ -114,6 +114,19 @@ fn compute_stats(data: &[u8]) -> (u8, u8, f64) {
     //   • Start min at u8::MAX and max at u8::MIN
     //   • Accumulate a f64 sum as you loop
     //   • Return a tuple literal: (min, max, sum / data.len() as f64)
+    let mut min = u8::MAX;
+let mut max = u8::MIN;
+let mut sum = 0.0;
+
+for &value in data {
+if value < min {
+min = value;
+}
+if value > max {
+max = value;
+}
+sum += value as f64;
+}
     todo!("implement compute_stats")
 }
 
