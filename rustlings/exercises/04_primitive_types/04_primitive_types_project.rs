@@ -27,7 +27,6 @@ fn main() {
 
       let readings: [u8; SENSOR_COUNT] = [34, 87, 22, 95, 61, 43, 78, 10, 55,
   89, 47, 66];
-    todo!("TODO 1: declare the readings array");
 
     // ── TODO 2 ───────────────────────────────────────────────
     // Call compute_stats() passing a slice of the FULL array.
@@ -42,8 +41,6 @@ fn main() {
     let max  = result.1;
     let avg = result.2;
 
-    todo!("TODO 2: call compute_stats and destructure the result");
-
     println!("Full array  → Min: {min}, Max: {max}, Avg: {avg:.2}");
 
     // ── TODO 3 ───────────────────────────────────────────────
@@ -57,8 +54,6 @@ fn main() {
     let mid_min = result.0;
     let mid_max = result.1;
     let mid_avg = result.2;
-    
-    todo!("TODO 3: slice the middle 6 and compute stats on them");
 
     println!("Middle 6    → Min: {mid_min}, Max: {mid_max}, Avg: {mid_avg:.2}");
 
@@ -71,7 +66,6 @@ fn main() {
     let sensorValue = sensor_status(avg);
     let label = sensorValue.0;
     let is_critical = sensorValue.1;
-    todo!("TODO 4: call sensor_status and destructure");
 
     println!("Status      → Label: '{label}', Critical: {is_critical}");
 
@@ -82,10 +76,9 @@ fn main() {
     //   above (u32)
     //
     // let (???, ???) = count_threshold(???, avg);
-    let threshold = count_threshold(&readings, avg);
-  let below = threshold.0;
-  let above = threshold.1;
-    todo!("TODO 5: call count_threshold and destructure");
+        let threshold = count_threshold(&readings, avg);
+    let below = threshold.0;
+    let above = threshold.1;
 
     println!("Threshold   → {below} below avg, {above} at-or-above avg");
 
@@ -127,7 +120,7 @@ max = value;
 }
 sum += value as f64;
 }
-    todo!("implement compute_stats")
+   (min, max, sum / data.len() as f64)
 }
 
 /// Returns (status_label, is_critical) based on the average reading.
@@ -136,9 +129,20 @@ sum += value as f64;
 ///  avg >= 35.0  →  label = 'W' (Warning),  is_critical = false
 ///  avg <  35.0  →  label = 'C' (Critical), is_critical = true
 fn sensor_status(avg: f64) -> (char, bool) {
-    // Use an if / else if / else chain.
-    // Return a tuple literal of (char, bool).
-    todo!("implement sensor_status")
+    let label;
+    let is_critical;
+    if avg >= 60.0{
+        label = 'G';
+        is_critical = false;
+    }else if avg >= 35.0{
+        label = 'W';
+        is_critical = false;
+    }else{
+        label = 'C';
+        is_critical = true;
+    }
+    (label,is_critical)
+    
 }
 
 /// Returns (count_below, count_at_or_above) relative to threshold.
@@ -149,5 +153,17 @@ fn sensor_status(avg: f64) -> (char, bool) {
 fn count_threshold(data: &[u8], threshold: f64) -> (u32, u32) {
     // Declare two u32 counters, loop through the slice, cast to f64,
     // compare, increment the right counter, and return the tuple.
-    todo!("implement count_threshold")
+
+    let mut count_below = 0;
+    let mut count_at_or_above = 0;
+    for &value in data{
+        if (value as f64) < threshold{
+            count_below += 1;
+        }else{
+            count_at_or_above += 1;
+        }
+        
+    }
+    (count_below,count_at_or_above)
+    
 }
