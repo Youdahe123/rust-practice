@@ -151,8 +151,8 @@ fn sensor_status(avg: f64) -> (char, bool) {
 ///   if (element as f64) < threshold  →  count_below  += 1
 ///   otherwise                        →  count_above  += 1
 fn count_threshold(data: &[u8], threshold: f64) -> (u32, u32) {
-    // Declare two u32 counters, loop through the slice, cast to f64,
-    // compare, increment the right counter, and return the tuple.
+    //  u32 counters, loop through the slice, cast to f64,
+    // compareincrement the right counter, and return the tuple.
 
     let mut count_below = 0;
     let mut count_at_or_above = 0;
