@@ -49,6 +49,7 @@ mod tests {
     }
 
     #[test]
+    //test
     fn create_international_package() {
         let sender_country = String::from("Spain");
         let recipient_country = String::from("Russia");
